@@ -3,7 +3,7 @@ from django.urls import path
 from .views import (
     MyTokenObtainPairView, LogoutView,
     ProdutoListCreateView, ProdutoRetrieveUpdateDestroyView,
-    MovimentacaoListCreateView
+    MovimentacaoListCreateView,  MovimentacaoRetrieveUpdateDestroyView,
 )
 from rest_framework_simplejwt.views import TokenRefreshView
 
@@ -18,5 +18,6 @@ urlpatterns = [
     path('produtos/<int:pk>/', ProdutoRetrieveUpdateDestroyView.as_view(), name='produto_detail'),
 
     # Movimentações
-    path('movimentacoes/', MovimentacaoListCreateView.as_view(), name='movimentacoes_list_create'),
+    path('movimentacoes/', MovimentacaoListCreateView.as_view()),
+    path('movimentacoes/<int:pk>/', MovimentacaoRetrieveUpdateDestroyView.as_view()),
 ]
